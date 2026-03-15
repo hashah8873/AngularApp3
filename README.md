@@ -1,59 +1,144 @@
-# AngularApp3
+# Angular Book Browser App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+## Course Information
 
-## Development server
+Course Code: MWD4B
+Course Name: Angular Development
+Assignment: Assignment 3
 
-To start a local development server, run:
+Student Name: Hiba Abo Shawish
 
-```bash
+---
+
+## Project Description
+
+This project is an Angular web application that allows users to manage a list of books.
+
+The application demonstrates Angular routing and HTTP communication with a PHP and MySQL backend.
+
+Users can:
+
+* View a list of books
+* Add new books to the database
+
+---
+
+## Technologies Used
+
+Frontend
+
+* Angular
+* TypeScript
+* HTML
+* CSS
+
+Backend
+
+* PHP
+* MySQL
+* XAMPP
+
+Tools
+
+* Visual Studio Code
+* Node.js
+* Angular CLI
+* Git
+* GitHub
+
+---
+
+## Application Features
+
+### Book List Page
+
+Route:
+
+```
+/list
+```
+
+Displays all books stored in the MySQL database.
+
+Each book shows:
+
+* Title
+* Author
+* Description
+
+---
+
+### Add Book Page
+
+Route:
+
+```
+/add
+```
+
+Allows the user to add a new book using a form.
+
+The form includes:
+
+* Title
+* Author
+* Description
+
+After submission, the book is saved to the database.
+
+---
+
+## Backend API
+
+The backend is written in PHP and connects to MySQL.
+
+API files:
+
+* db.php
+* get-books.php
+* add-book.php
+
+Example API endpoint:
+
+```
+http://localhost/book-api/get-books.php
+```
+
+---
+
+## Database
+
+Database name:
+
+books_db
+
+Table structure:
+
+id
+title
+author
+description
+
+---
+
+## Running the Application
+
+1. Start XAMPP
+2. Run Apache and MySQL
+3. Run Angular server:
+
+```
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Open the app in the browser:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## GitHub Repository
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The project is stored in a GitHub repository for submission.
