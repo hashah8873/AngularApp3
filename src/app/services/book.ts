@@ -20,4 +20,7 @@ export class BookService {
     return this.http.post(`${this.apiUrl}/add-book.php`, book);
   }
 
+  deleteBook(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/delete-book.php?id=${id}`);
+  }
 }

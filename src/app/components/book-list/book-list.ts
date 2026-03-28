@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
 import { BookService } from '../../services/book';
 import { Book } from '../../models/book';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgFor, NgIf],
   templateUrl: './book-list.html',
   styleUrls: ['./book-list.css']
 })
@@ -14,24 +14,35 @@ export class BookListComponent implements OnInit {
 
   books: Book[] = [];
 
-  constructor(private bookService: BookService) {}
+  constructor(
+    private bookService: BookService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.loadBooks();
   }
 
   loadBooks() {
-
     this.bookService.getBooks().subscribe({
-      next: (data: Book[]) => {
-        console.log("Books from API:", data);
+      next: (data: any[]) => {
+        console.log("API DATA:", data);
+
         this.books = data;
+
+        // 🔥 الحل السحري
+        this.cdr.detectChanges();
       },
-      error: (error) => {
-        console.error("Error loading books:", error);
+      error: (err) => {
+        console.error("ERROR:", err);
       }
     });
-
   }
 
+  deleteBook(id: string) {
+    this.bookService.deleteBook(id).subscribe(() => {
+      alert('Deleted!');
+      this.loadBooks();
+    });
+  }
 }

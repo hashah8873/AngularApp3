@@ -4,7 +4,7 @@
 
 Course Code: MWD4B
 Course Name: Angular Development
-Assignment: Assignment 3
+Assignment: Assignment 4
 
 Student Name: Hiba Abo Shawish
 
@@ -14,31 +14,32 @@ Student Name: Hiba Abo Shawish
 
 This project is an Angular web application that allows users to manage a list of books.
 
-The application demonstrates Angular routing and HTTP communication with a PHP and MySQL backend.
+The application demonstrates Angular routing, forms, and HTTP communication with a PHP and MySQL backend.
 
 Users can:
 
 * View a list of books
 * Add new books to the database
+* Delete books from the database
 
 ---
 
 ## Technologies Used
 
-Frontend
+### Frontend
 
 * Angular
 * TypeScript
 * HTML
 * CSS
 
-Backend
+### Backend
 
 * PHP
 * MySQL
 * XAMPP
 
-Tools
+### Tools
 
 * Visual Studio Code
 * Node.js
@@ -88,6 +89,14 @@ After submission, the book is saved to the database.
 
 ---
 
+### Delete Book
+
+Users can delete a book directly from the list page using the delete button.
+
+The application sends an HTTP request to the PHP backend to remove the book from the database.
+
+---
+
 ## Backend API
 
 The backend is written in PHP and connects to MySQL.
@@ -97,6 +106,7 @@ API files:
 * db.php
 * get-books.php
 * add-book.php
+* delete-book.php
 
 Example API endpoint:
 
@@ -110,14 +120,16 @@ http://localhost/book-api/get-books.php
 
 Database name:
 
+```
 books_db
+```
 
 Table structure:
 
-id
-title
-author
-description
+* id
+* title
+* author
+* description
 
 ---
 
