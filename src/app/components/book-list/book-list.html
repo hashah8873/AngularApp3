@@ -4,17 +4,12 @@
 
   <h3>{{ book.title }}</h3>
 
-  <p>
-    <strong>Author:</strong> {{ book.author }}
-  </p>
+  <p><strong>Author:</strong> {{ book.author }}</p>
 
-  <p>
-    {{ book.description }}
-  </p>
+  <p>{{ book.description }}</p>
 
-  <button (click)="deleteBook(book.id)">
-    Delete
-  </button>
+  <button (click)="deleteBook(book.id)">Delete</button>
+  <button (click)="goToUpdate(book)">Update</button>
 
   <hr>
 

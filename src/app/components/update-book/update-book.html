@@ -1,12 +1,8 @@
-<h2>Add Book</h2>
+<h2>Update Book</h2>
 
+<input [(ngModel)]="id" placeholder="ID"><br><br>
 <input [(ngModel)]="title" placeholder="Title"><br><br>
 <input [(ngModel)]="author" placeholder="Author"><br><br>
 <textarea [(ngModel)]="description"></textarea><br><br>
 
-<button (click)="addBook()">Add</button>
-
-<hr>
-
-<input type="file" (change)="onFileChange($event)">
-<button (click)="uploadFile()">Upload</button>
+<button (click)="updateBook()">Update</button>

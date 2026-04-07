@@ -11,7 +11,7 @@ $sql = "DELETE FROM books WHERE id = $id";
 
 $conn->query($sql);
 
-echo json_encode(["message" => "Book deleted successfully"]);
+echo json_encode(["message" => "Deleted"]);
 
 $conn->close();
 

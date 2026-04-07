@@ -1,21 +1,21 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, JsonPipe } from '@angular/common';
 import { BookService } from '../../services/book';
-import { Book } from '../../models/book';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [NgFor, NgIf],
-  templateUrl: './book-list.html',
-  styleUrls: ['./book-list.css']
+  imports: [NgFor, NgIf, JsonPipe],
+  templateUrl: './book-list.html'
 })
 export class BookListComponent implements OnInit {
 
-  books: Book[] = [];
+  books: any[] = [];
 
   constructor(
-    private bookService: BookService,
+    private service: BookService,
+    private router: Router,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -24,25 +24,31 @@ export class BookListComponent implements OnInit {
   }
 
   loadBooks() {
-    this.bookService.getBooks().subscribe({
-      next: (data: any[]) => {
-        console.log("API DATA:", data);
+    this.service.getBooks().subscribe({
+      next: (data: any) => {
+        console.log("DATA FROM API:", data);
 
-        this.books = data;
+        this.books = Array.isArray(data) ? data : [];
 
-        // 🔥 الحل السحري
+        console.log("BOOKS:", this.books);
+
+        // ✅ هذا هو الحل السحري
         this.cdr.detectChanges();
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error("ERROR:", err);
       }
     });
   }
 
   deleteBook(id: string) {
-    this.bookService.deleteBook(id).subscribe(() => {
-      alert('Deleted!');
+    this.service.deleteBook(id).subscribe(() => {
       this.loadBooks();
     });
   }
+
+  goToUpdate(book: any) {
+    this.router.navigate(['/update'], { state: { book } });
+  }
+
 }
